@@ -1,0 +1,23 @@
+{
+    "name": "adulklarapl/console",
+    "description": "Simply and light framework for console applications. Let's build your own system using abdulklarapl's components!",
+    "keywords": ["console", "stdin", "abdulklarapl", "component"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Patryk Szlagowski",
+            "email": "szlagowskipatryk@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "abdulklarapl/eventdispatcher"
+    },
+    "autoload": {
+        "psr-0": {
+            "Abdulklarapl\\Tests": "tests/",
+            "Abdulklarapl": "src/"
+        }
+    }
+}
