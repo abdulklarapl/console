@@ -12,7 +12,8 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "abdulklarapl/eventdispatcher": "dev-master"
+        "abdulklarapl/eventdispatcher": "dev-master",
+        "abdulklarapl/bag": "dev-master"
     },
     "autoload": {
         "psr-0": {
