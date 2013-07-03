@@ -38,6 +38,7 @@ class Console
         }
 
         $this->eventDispatcher = $eventDispatcher;
+        $this->applications = new Bag();
     }
 
     /**
