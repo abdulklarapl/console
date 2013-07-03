@@ -6,6 +6,7 @@ use Abdulklarapl\Components\Bag\Bag;
 use Abdulklarapl\Components\Console\Application\ConsoleApplicationInterface;
 use Abdulklarapl\Components\EventDispatcher\Dispatcher\DispatcherInterface;
 use Abdulklarapl\Components\EventDispatcher\Dispatcher\Dispatcher;
+use Abdulklarapl\Components\Console\Application\InternalApplication;
 
 /**
  * Console
@@ -45,5 +46,10 @@ class Console
     public function registerApplication(ConsoleApplicationInterface $application)
     {
         $this->applications->set($application->getNamespace(), $application);
+    }
+
+    public function run()
+    {
+        $this->registerApplication(new InternalApplication());
     }
 }
