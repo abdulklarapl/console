@@ -1,8 +1,6 @@
 <?php
 
-namespace Abdulklarapl\Components\Console\Prompt;
-
-use Abdulklarapl\Components\Bag\Bag;
+namespace Abdulklarapl\Components\Console\Input\Prompt;
 
 /**
  * PromptInterface

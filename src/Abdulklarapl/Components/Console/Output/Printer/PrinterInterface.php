@@ -1,6 +1,6 @@
 <?php
 
-namespace Abdulklarapl\Components\Console\Printer;
+namespace Abdulklarapl\Components\Console\Output\Printer;
 
 /**
  * PrinterInterface

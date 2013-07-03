@@ -2,6 +2,8 @@
 
 namespace Abdulklarapl\Components\Console\Output;
 
+use Abdulklarapl\Components\Console\Output\Printer\PrinterInterface;
+
 /**
  * Output
  *

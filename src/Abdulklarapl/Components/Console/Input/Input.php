@@ -3,7 +3,7 @@
 namespace Abdulklarapl\Components\Console\Input;
 
 use Abdulklarapl\Components\Bag\Bag;
-use Abdulklarapl\Components\Console\Prompt\PromptInterface;
+use Abdulklarapl\Components\Console\Input\Prompt\PromptInterface;
 
 /**
  * Input
