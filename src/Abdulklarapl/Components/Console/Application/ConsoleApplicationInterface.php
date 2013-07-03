@@ -26,7 +26,7 @@ interface ConsoleApplicationInterface
     /**
      * @return Bag
      */
-    public function getParamters();
+    public function getParameters();
 
     /**
      * @return string
