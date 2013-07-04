@@ -6,6 +6,7 @@ use Abdulklarapl\Components\EventDispatcher\Event\EventInterface;
 use Abdulklarapl\Components\EventDispatcher\Event\Event;
 use Abdulklarapl\Components\Console\Input\InputInterface;
 use Abdulklarapl\Components\Console\Output\OutputInterface;
+use Abdulklarapl\Components\Bag\Bag;
 
 class ConsoleEvent extends Event implements EventInterface
 {
@@ -19,6 +20,11 @@ class ConsoleEvent extends Event implements EventInterface
      * @var OutputInterface
      */
     private $output;
+
+    /**
+     * @var Bag
+     */
+    private $applications;
 
     /**
      * @param InputInterface $input
@@ -50,5 +56,21 @@ class ConsoleEvent extends Event implements EventInterface
     public function getOutput()
     {
         return $this->output;
+    }
+
+    /**
+     * @param Bag $applications
+     */
+    public function setApplications(Bag $applications)
+    {
+        $this->applications = $applications;
+    }
+
+    /**
+     * @return Bag
+     */
+    public function getApplications()
+    {
+        return $this->applications;
     }
 }
