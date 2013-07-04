@@ -70,6 +70,7 @@ class Console
         $event = new ConsoleEvent($calledApp);
         $event->setInput($input);
         $event->setOutput(new Output(new Printer()));
+        $event->setApplications($this->applications);
 
         $this->eventDispatcher->fire($calledApp, $event);
     }
