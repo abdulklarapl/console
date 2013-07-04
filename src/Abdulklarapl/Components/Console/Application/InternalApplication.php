@@ -2,18 +2,32 @@
 
 namespace Abdulklarapl\Components\Console\Application;
 
-use Abdulklarapl\Components\Console\Input\InputInterface;
-use Abdulklarapl\Components\Console\Output\OutputInterface;
+use Abdulklarapl\Components\Console\Event\ConsoleEvent;
 
 class InternalApplication extends ConsoleApplication implements ConsoleApplicationInterface
 {
+
+    /**
+     * @const
+     */
+    const __NAMESPACE = 'abdulklarapl.demo';
+
+    /**
+     * @const
+     */
+    const EVENT_HELP = 'abdulklarapl.demo.help';
+
+    /**
+     * @const
+     */
+    const EVENT_ABOUT = 'abdulklarapl.demo.about';
 
     /**
      * @return string
      */
     public function getNamespace()
     {
-        return 'abdulklarapl.demo';
+        return self::__NAMESPACE;
     }
 
     /**
@@ -22,26 +36,38 @@ class InternalApplication extends ConsoleApplication implements ConsoleApplicati
     public function getSubscribedEvents()
     {
         return array(
-            $this->getNamespace().".help" => array($this, 'help'),
-            $this->getNamespace().".about" => array($this, 'about')
+            self::EVENT_HELP => 'help',
+            self::EVENT_ABOUT => 'about'
         );
     }
 
     /**
-     * @param \Abdulklarapl\Components\Console\Input\InputInterface $input
-     * @param \Abdulklarapl\Components\Console\Output\OutputInterface $output
+     * @param ConsoleEvent $event
      */
-    public function help(InputInterface $input, OutputInterface $output)
+    public function help(ConsoleEvent $event)
     {
-        $output->writeln('help instructions');
+        //
     }
 
     /**
-     * @param \Abdulklarapl\Components\Console\Input\InputInterface $intput
-     * @param \Abdulklarapl\Components\Console\Output\OutputInterface $output
+     * @param ConsoleEvent $event
      */
-    public function about(InputInterface $intput, OutputInterface $output)
+    public function about(ConsoleEvent $event)
     {
-        $output->writeln("Patryk Szlagowski");
+        $output = $event->getOutput();
+        $input = $event->getInput();
+
+        $name = $input->read("Your name: ");
+        $output->writeln("Nice to meet you ".$name."!");
+
+        $confirm = $input->confirm("Do you like abdulklara console?");
+
+        if ($confirm === true) {
+            $output->success("YAY!");
+            $this->terminate();
+        }
+
+        $output->error("404");
+        $this->terminate();
     }
 }
