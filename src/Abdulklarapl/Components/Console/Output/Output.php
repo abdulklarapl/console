@@ -39,7 +39,7 @@ class Output implements OutputInterface
      */
     public function write($msg = null)
     {
-        $this->printer->write($msg = null);
+        $this->printer->write($msg);
     }
 
     /**
