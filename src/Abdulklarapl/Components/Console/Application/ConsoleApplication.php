@@ -30,7 +30,7 @@ class ConsoleApplication implements ConsoleApplicationInterface, SubscriberInter
     public function getSubscribedEvents()
     {
         return array(
-            $this->getNamespace().".fire" => 'run'
+            $this->getNamespace() => 'run'
         );
     }
 
