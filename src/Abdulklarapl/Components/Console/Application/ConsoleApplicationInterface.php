@@ -29,7 +29,7 @@ interface ConsoleApplicationInterface
     public function getParameters();
 
     /**
-     * @return string
+     * @return string|array
      */
     public function getDescription();
 

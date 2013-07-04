@@ -53,7 +53,7 @@ class ConsoleApplication implements ConsoleApplicationInterface, SubscriberInter
     }
 
     /**
-     * @return string
+     * @return string|array
      */
     public function getDescription()
     {
