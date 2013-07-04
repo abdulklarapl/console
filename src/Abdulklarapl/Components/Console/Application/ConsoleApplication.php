@@ -2,7 +2,9 @@
 
 namespace Abdulklarapl\Components\Console\Application;
 
-class ConsoleApplication implements ConsoleApplicationInterface
+use Abdulklarapl\Components\EventDispatcher\Subscriber\SubscriberInterface;
+
+class ConsoleApplication implements ConsoleApplicationInterface, SubscriberInterface
 {
 
     public function terminate()
