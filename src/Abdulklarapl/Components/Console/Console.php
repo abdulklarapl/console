@@ -56,13 +56,16 @@ class Console
         }
     }
 
+    /**
+     * register internal application, register subscribers, fire the event
+     */
     public function run()
     {
         $this->registerApplication(new InternalApplication());
         $this->registerSubscribers();
 
         $input = new Input(new Prompt());
-        $calledApp = $input->getOptions()->get(0);
+        $calledApp = $input->getOptions()->get(0, InternalApplication::EVENT_HELP);
 
         $event = new ConsoleEvent($calledApp);
         $event->setInput($input);
@@ -71,6 +74,9 @@ class Console
         $this->eventDispatcher->fire($calledApp, $event);
     }
 
+    /**
+     * for each application, register eventsubscriber (application)
+     */
     private function registerSubscribers()
     {
         foreach ($this->applications->all() as $event => $application) {
