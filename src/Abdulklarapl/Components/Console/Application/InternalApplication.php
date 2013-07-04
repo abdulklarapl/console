@@ -42,6 +42,17 @@ class InternalApplication extends ConsoleApplication implements ConsoleApplicati
     }
 
     /**
+     * @return array|string
+     */
+    public function getDescription()
+    {
+        return array(
+            self::EVENT_HELP => 'Show\'s that info',
+            self::EVENT_ABOUT => 'About component'
+        );
+    }
+
+    /**
      * @param ConsoleEvent $event
      */
     public function help(ConsoleEvent $event)
@@ -49,7 +60,18 @@ class InternalApplication extends ConsoleApplication implements ConsoleApplicati
         $output = $event->getOutput();
         $output->writeln("Abdulklara Console Component");
         $output->writeln("For documentation, see https://github.com/abdulklarapl/console");
-        $output->writeln("");
+        $output->writeln();
+
+        $applications = $event->getApplications()->all();
+        foreach ($applications as $eventName => $application) {
+            $subscribedEvents = $application->getSubscribedEvents();
+            $description = $application->getDescription();
+            if (is_array($description)) {
+                $description = $description[$eventName];
+            }
+
+            $output->write(sprintf("\t%s : \t %s\r\n", $eventName, $description));
+        }
     }
 
     /**
