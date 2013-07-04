@@ -10,17 +10,17 @@ class InternalApplication extends ConsoleApplication implements ConsoleApplicati
     /**
      * @const
      */
-    const __NAMESPACE = 'abdulklarapl.demo';
+    const __NAMESPACE = 'abdulklarapl';
 
     /**
      * @const
      */
-    const EVENT_HELP = 'abdulklarapl.demo.help';
+    const EVENT_HELP = 'abdulklarapl.help';
 
     /**
      * @const
      */
-    const EVENT_ABOUT = 'abdulklarapl.demo.about';
+    const EVENT_ABOUT = 'abdulklarapl.demo';
 
     /**
      * @return string
@@ -46,7 +46,10 @@ class InternalApplication extends ConsoleApplication implements ConsoleApplicati
      */
     public function help(ConsoleEvent $event)
     {
-        //
+        $output = $event->getOutput();
+        $output->writeln("Abdulklara Console Component");
+        $output->writeln("For documentation, see https://github.com/abdulklarapl/console");
+        $output->writeln("");
     }
 
     /**
